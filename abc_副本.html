@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拥抱AI时代：从程序员到AI应用工程师的进化之路</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .slide-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            visibility: hidden;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            visibility: visible;
+        }
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+        .nav-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        #prev { left: 2vw; }
+        #next { right: 2vw; }
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            background-color: #0ea5e9;
+            transition: width 0.3s ease;
+            z-index: 10;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 500;
+            margin-top: 1.5rem;
+        }
+        p, li {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .quote {
+            font-style: italic;
+            margin-top: 2rem;
+            color: #94a3b8;
+        }
+        .highlight {
+            color: #0ea5e9;
+            font-weight: 500;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+        .comparison-grid div {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .flow-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+        .flow-arrow {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+
+        <!-- Slide 1: Cover -->
+        <div class="slide active">
+            <div class="slide-content">
+                <h1 class="text-sky-400">拥抱AI时代</h1>
+                <h2 class="mt-6 text-slate-300">从程序员到AI应用工程师的进化之路</h2>
+                <p class="quote mt-12 text-2xl">"最好的预测未来的方式，就是创造未来。"</p>
+                <p class="text-right text-slate-400 mt-4">- Peter Drucker</p>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Agenda -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">今天我们要聊什么？</h1>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-sky-400">不是危机，而是机遇</h2>
+                        <p class="mt-4 text-slate-300">发现技术变革背后的巨大潜力</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-sky-400">不是替代，而是进化</h2>
+                        <p class="mt-4 text-slate-300">重新定义我们的角色与价值</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-sky-400">不是焦虑，而是重生</h2>
+                        <p class="mt-4 text-slate-300">开启职业生涯的第二增长曲线</p>
+                    </div>
+                </div>
+                <p class="mt-16 text-2xl text-slate-400">今天，我们一起探索一个更广阔的世界</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Story -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-8">一个真实的故事</h1>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left">
+                        <p class="mb-6">还记得胶片相机时代吗？柯达的工程师们技术精湛，但数码时代来临时，纯熟的化学和光学技能变得不再是唯一的核心。</p>
+                        <p class="mb-6">那些最早拥抱数码传感器、图像处理和软件的人，成为了新时代的先行者。</p>
+                        <p class="font-bold text-sky-400 text-2xl">我们正站在类似的转折点上。</p>
+                    </div>
+                    <div class="h-80 w-full bg-cover bg-center rounded-xl shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=1200&auto=format&fit=crop')">
+                        <!-- [胶片相机的图片] -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Reality -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-8">让我们直面现实</h1>
+                <h2 class="mb-12 text-slate-400">2026年底的预测：</h2>
+                <div class="space-y-8 text-2xl">
+                    <p>大量应用程序将由<span class="highlight">AI辅助</span>或<span class="highlight">自主完成</span></p>
+                    <p>传统意义上的<span class="highlight">"纯编码"</span>岗位会显著减少</p>
+                    <p>对<span class="highlight">单一技术栈</span>的深度依赖，价值会降低</p>
+                </div>
+                <p class="mt-16 text-3xl font-bold">这是事实，但<span class="text-red-500">绝不是终点</span>。</p>
+            </div>
+        </div>
+        
+        <!-- Slide 5: AI is not a threat -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">AI不是来抢饭碗的，是来扩展我们能力的</h1>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-slate-800/50 p-8 rounded-xl flex items-center gap-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-sky-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><path d="M9 17h6"></path><circle cx="17" cy="17" r="2"></circle></svg>
+                        <p><strong>汽车</strong>没有让人失去移动能力，而是让我们走得<span class="highlight">更远</span>。</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl flex items-center gap-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-sky-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        <p><strong>智能手机</strong>没有让人失去沟通能力，而是让我们连接<span class="highlight">更广</span>。</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl flex items-center gap-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-sky-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"></path><rect x="4" y="12" width="8" height="8" rx="2"></rect><path d="M12 12v8h4"></path><path d="M16 4.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z"></path></svg>
+                        <p><strong>AI</strong>不会让我们失去创造力，而是让我们创造<span class="highlight">更多</span>。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: The Real Question -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-8">真正的问题是什么？</h1>
+                <p class="text-2xl text-slate-400 mb-12">不是AI太强大，而是我们把自己定义得太狭窄。</p>
+                <div class="space-y-8 text-3xl">
+                    <p>你是"前端工程师"？还是<span class="highlight text-4xl">"解决问题的人"</span>？</p>
+                    <p>你是"写代码的"？还是<span class="highlight text-4xl">"创造价值的"</span>？</p>
+                    <p>你是"技术员"？还是<span class="highlight text-4xl">"产品实现者"</span>？</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Data -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">让数据说话</h1>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="mb-6">当前项目需要</h2>
+                        <div class="grid grid-cols-2 gap-4 text-xl">
+                            <span class="p-2 bg-slate-700/50 rounded">需求分析师</span>
+                            <span class="p-2 bg-slate-700/50 rounded">产品经理</span>
+                            <span class="p-2 bg-slate-700/50 rounded">UI设计师</span>
+                            <span class="p-2 bg-slate-700/50 rounded">前端工程师</span>
+                            <span class="p-2 bg-slate-700/50 rounded">后端工程师</span>
+                            <span class="p-2 bg-slate-700/50 rounded">测试工程师</span>
+                            <span class="p-2 bg-slate-700/50 rounded">运维工程师</span>
+                        </div>
+                        <p class="mt-6 text-4xl font-bold">= <span class="text-red-500">7个角色</span></p>
+                    </div>
+                    <div class="bg-sky-900/50 p-8 rounded-xl border border-sky-400">
+                        <h2 class="mb-6 text-sky-300">2026年</h2>
+                        <div class="flex flex-col items-center justify-center h-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                           <p class="mt-4 text-2xl">AI应用工程师 × 1</p>
+                        </div>
+                        <p class="mt-6 text-4xl font-bold">= <span class="highlight">完整产品交付</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 8: What it means -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">这意味着什么？</h1>
+                <p class="text-3xl text-red-500 line-through mb-12">不是7个人变成1个人那么简单</p>
+                <div class="space-y-8 text-3xl text-left max-w-4xl mx-auto">
+                    <p class="flex items-center"><span class="text-green-400 mr-4 text-4xl">✅</span> 一个人能创造<span class="highlight mx-2">7倍</span>的价值</p>
+                    <p class="flex items-center"><span class="text-green-400 mr-4 text-4xl">✅</span> 每个人都能<span class="highlight mx-2">主导完整项目</span></p>
+                    <p class="flex items-center"><span class="text-green-400 mr-4 text-4xl">✅</span> 从<span class="highlight mx-2">螺丝钉</span>变成<span class="highlight ml-2">创造者</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Super individual -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">新时代的超级个体</h1>
+                <div class="comparison-grid text-2xl">
+                    <div>
+                        <h2 class="text-slate-400 mb-4">过去</h2>
+                        <ul class="space-y-4 list-disc list-inside">
+                            <li>我是团队的一部分</li>
+                            <li>我负责某个技术环节</li>
+                            <li>我等待需求</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-sky-400 mb-4">现在</h2>
+                        <ul class="space-y-4 list-disc list-inside">
+                            <li>我是一支完整的团队</li>
+                            <li>我负责整个产品生命周期</li>
+                            <li>我创造解决方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Imagine -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">想象一下，当你能：</h1>
+                <div class="grid md:grid-cols-2 gap-12 items-center text-2xl">
+                    <ul class="space-y-6 text-left list-disc list-inside">
+                        <li>早上和客户<span class="highlight">聊需求</span></li>
+                        <li>中午设计出<span class="highlight">原型</span></li>
+                        <li>下午让AI帮你<span class="highlight">实现</span></li>
+                        <li>晚上就能交付<span class="highlight">MVP</span></li>
+                    </ul>
+                    <div class="h-80 w-full bg-cover bg-center rounded-xl shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop')">
+                         <!-- [一个人在现代化办公室高效工作的图片] -->
+                    </div>
+                </div>
+                 <div class="mt-8 text-center bg-slate-800/50 p-8 rounded-xl max-w-3xl mx-auto">
+                    <h2 class="text-2xl mb-4">你的价值是什么？</h2>
+                    <p class="text-3xl text-sky-400">不是写了多少行代码，而是创造了多少可能性。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: From user to creator -->
+        <div class="slide">
+             <div class="slide-content">
+                <h1 class="mb-12">从工具使用者到价值创造者</h1>
+                <div class="space-y-4 max-w-4xl mx-auto text-xl">
+                    <div class="p-4 bg-slate-800/50 rounded-lg">Level 1: 我会用React/Vue/Angular</div>
+                    <div class="p-4 bg-slate-800/50 rounded-lg">Level 2: 我会让AI帮我用所有框架</div>
+                    <div class="p-4 bg-sky-900/50 rounded-lg border-l-4 border-sky-500">Level 3: 我能选择最适合客户的技术</div>
+                    <div class="p-4 bg-sky-900/50 rounded-lg border-l-4 border-sky-400">Level 4: 我能交付客户真正需要的解决方案</div>
+                    <div class="p-4 bg-sky-800/50 rounded-lg border-l-4 border-sky-300 font-bold text-2xl">Level 5: 我能创造客户还没想到的价值</div>
+                </div>
+                <h2 class="mt-12">你想在哪一层？</h2>
+            </div>
+        </div>
+        
+        <!-- Slide 12: FDE -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">FDE模式 - 未来的工作方式</h1>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-6xl font-bold text-sky-400 mb-4">F<span class="text-2xl ml-2 text-slate-300">ast (快速)</span></h2>
+                        <p>用AI加速所有可以加速的环节</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-6xl font-bold text-sky-400 mb-4">D<span class="text-2xl ml-2 text-slate-300">irect (直接)</span></h2>
+                        <p>直接面对客户，理解真实需求</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-6xl font-bold text-sky-400 mb-4">E<span class="text-2xl ml-2 text-slate-300">nd-to-End</span></h2>
+                        <p>从想法到交付，全程掌控</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 13: FDE Power -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">FDE模式的威力</h1>
+                <div class="space-y-12">
+                    <div>
+                        <h2 class="text-2xl mb-4 text-slate-400">传统模式</h2>
+                        <div class="flow-diagram text-sm md:text-base">
+                            <div class="flow-box">客户</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">销售</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">产品</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">设计</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">开发</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">测试</div> <div class="flow-arrow">→</div>
+                            <div class="flow-box">交付</div>
+                        </div>
+                        <p class="mt-4 text-red-400">(信息衰减、时间漫长、理解偏差)</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl mb-4 text-sky-400">FDE模式</h2>
+                        <div class="flow-diagram text-lg">
+                            <div class="flow-box border border-sky-400">客户</div> 
+                            <div class="flow-arrow text-3xl text-sky-400">↔</div>
+                            <div class="flow-box border border-sky-400">AI应用工程师</div> 
+                            <div class="flow-arrow text-3xl text-sky-400">→</div>
+                            <div class="flow-box border border-sky-400">交付</div>
+                        </div>
+                        <p class="mt-4 text-green-400">(直接对话、快速迭代、精准理解)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: One person company -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">一人公司的崛起</h1>
+                <p class="mb-12 text-2xl text-slate-400">这不是孤军奋战，而是<span class="highlight">个体赋能</span></p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        <p>一个人开发的App能服务百万用户</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <p>一个人的SaaS能解决行业痛点</p>
+                    </div>
+                     <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mx-auto mb-4 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                        <p>一个人的设计能引领潮流</p>
+                    </div>
+                </div>
+                <p class="mt-12 text-3xl">AI让"一人公司"从梦想变成<span class="highlight">现实</span></p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Not alone -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">一人公司 ≠ 孤立无援</h1>
+                <p class="mb-12 text-2xl">你将拥有：</p>
+                <div class="grid md:grid-cols-2 gap-8 text-left text-2xl">
+                    <div class="bg-slate-800/50 p-6 rounded-lg flex items-center gap-4"><span class="text-2xl">🤖</span> AI作为<span class="highlight">24小时</span>的技术伙伴</div>
+                    <div class="bg-slate-800/50 p-6 rounded-lg flex items-center gap-4"><span class="text-2xl">👥</span> 团队作为资源和<span class="highlight">支持网络</span></div>
+                    <div class="bg-slate-800/50 p-6 rounded-lg flex items-center gap-4"><span class="text-2xl">🎯</span> 公司平台作为<span class="highlight">放大器</span></div>
+                    <div class="bg-slate-800/50 p-6 rounded-lg flex items-center gap-4"><span class="text-2xl">🌟</span> 客户作为<span class="highlight">价值验证者</span></div>
+                </div>
+                <p class="mt-12 text-3xl font-bold">独立而不孤单，强大而有支撑</p>
+            </div>
+        </div>
+
+        <!-- Slide 16: New Role -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-4">AI应用工程师</h1>
+                <p class="mb-12 text-2xl text-slate-400">- 不是新瓶装旧酒，这是一个全新的物种 -</p>
+                <div class="grid grid-cols-2 gap-8 text-2xl">
+                    <div class="bg-slate-800/50 p-6 rounded-lg">技术的<span class="highlight">精通者</span></div>
+                    <div class="bg-slate-800/50 p-6 rounded-lg">业务的<span class="highlight">理解者</span></div>
+                    <div class="bg-slate-800/50 p-6 rounded-lg">客户的<span class="highlight">伙伴</span></div>
+                    <div class="bg-sky-900/50 p-6 rounded-lg border border-sky-400 text-3xl">价值的<span class="highlight">创造者</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: A Day -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">AI应用工程师的一天</h1>
+                <div class="text-left max-w-3xl mx-auto space-y-4 text-xl">
+                    <p><span class="font-bold text-sky-400 w-24 inline-block">09:00 -</span> 与教育机构客户视频，理解他们的教学痛点</p>
+                    <p><span class="font-bold text-sky-400 w-24 inline-block">10:30 -</span> 用AI快速生成3个原型方案 (客户惊叹于速度!)</p>
+                    <p><span class="font-bold text-sky-400 w-24 inline-block">14:00 -</span> AI协助完成开发，你专注于核心业务逻辑</p>
+                    <p><span class="font-bold text-sky-400 w-24 inline-block">16:00 -</span> 部署到测试环境，邀请客户试用</p>
+                    <p><span class="font-bold text-sky-400 w-24 inline-block">17:00 -</span> 根据反馈调整，当天<span class="highlight">第二版</span>上线</p>
+                </div>
+                <p class="mt-12 text-3xl font-bold">这就是新时代的效率</p>
+            </div>
+        </div>
+        
+        <!-- Slide 18: New Skills -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">你需要的新能力</h1>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-2xl mb-4 text-sky-400">技术层面</h2>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>熟练驾驭AI开发工具</li>
+                            <li>快速学习新技术</li>
+                            <li>架构思维而非单点技术</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-2xl mb-4 text-sky-400">业务层面</h2>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>需求分析和问题挖掘</li>
+                            <li>产品思维和用户体验</li>
+                            <li>业务逻辑和流程设计</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800/50 p-8 rounded-xl">
+                        <h2 class="text-2xl mb-4 text-sky-400">沟通层面</h2>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>客户沟通和需求确认</li>
+                            <li>方案展示和价值传递</li>
+                            <li>持续迭代和关系维护</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Mindset Shift -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">从技术专家到全栈创造者</h1>
+                <div class="comparison-grid text-lg">
+                    <div>
+                        <h2 class="text-slate-400 mb-4">旧思维</h2>
+                        <ul class="space-y-4">
+                            <li>"我是iOS工程师，只会Swift"</li>
+                            <li>"给我需求文档，我来实现"</li>
+                            <li>"我的工作是写代码"</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-sky-400 mb-4">新思维</h2>
+                        <ul class="space-y-4">
+                            <li>"我能为用户创造移动端价值，iOS/Android/Web都是实现方式"</li>
+                            <li>"让我理解问题，我来设计解决方案"</li>
+                            <li>"我的工作是交付价值"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 20: Evolution -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">这不是降维打击，是<span class="highlight">升维进化</span></h1>
+                <div class="space-y-3 text-left max-w-4xl mx-auto text-xl">
+                    <p><span class="font-bold">一维:</span> 只会某种语言/框架</p>
+                    <p><span class="font-bold">二维:</span> 会多种技术栈</p>
+                    <p><span class="font-bold">三维:</span> 懂技术 + 懂业务</p>
+                    <p><span class="font-bold">四维:</span> 懂技术 + 懂业务 + 会沟通</p>
+                    <p class="p-4 bg-sky-900/50 rounded-lg border-l-4 border-sky-400 text-2xl"><span class="font-bold">五维:</span> 懂技术 + 懂业务 + 会沟通 + <span class="highlight">善用AI</span> + <span class="highlight">创造价值</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21: Company Transformation -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">公司的转型决定</h1>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-red-900/20 p-8 rounded-xl border border-red-500">
+                        <h2 class="text-2xl mb-4 text-red-400">我们将取消</h2>
+                        <ul class="space-y-2 text-slate-400 line-through">
+                            <li>前端工程师</li>
+                            <li>后端工程师</li>
+                            <li>Android工程师</li>
+                            <li>iOS工程师</li>
+                            <li>UI/UX工程师</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-900/20 p-8 rounded-xl border border-green-500">
+                        <h2 class="text-2xl mb-4 text-green-400">我们将建立</h2>
+                        <div class="h-full flex flex-col justify-center">
+                           <p class="text-3xl font-bold">AI应用工程师</p>
+                           <p class="text-slate-300 mt-2">- 完整产品创造者 -</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 22: Upgrade -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">这是一次全面的<span class="highlight">升级</span></h1>
+                <p class="mb-12 text-2xl">每个人都有机会成为AI应用工程师，我们会提供：</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                    <div class="flex flex-col items-center"><span class="text-5xl mb-2">📚</span><p>系统化培训</p></div>
+                    <div class="flex flex-col items-center"><span class="text-5xl mb-2">🛠️</span><p>先进AI工具</p></div>
+                    <div class="flex flex-col items-center"><span class="text-5xl mb-2">👥</span><p>导师制度</p></div>
+                    <div class="flex flex-col items-center"><span class="text-5xl mb-2">🎯</span><p>实战机会</p></div>
+                    <div class="flex flex-col items-center"><span class="text-5xl mb-2">🌱</span><p>成长空间</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23: Path -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">转型路径</h1>
+                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-left">
+                    <div class="bg-slate-800/50 p-6 rounded-xl w-full md:w-1/3">
+                        <h2 class="text-xl text-sky-400">Phase 1: 觉醒期 (1-2个月)</h2>
+                        <ul class="mt-2 list-disc list-inside text-base">
+                            <li>理解AI工具，建立新思维</li>
+                            <li>尝试用AI辅助当前工作</li>
+                        </ul>
+                    </div>
+                    <div class="text-2xl text-slate-500 hidden md:block">→</div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl w-full md:w-1/3">
+                        <h2 class="text-xl text-sky-400">Phase 2: 成长期 (3-6个月)</h2>
+                        <ul class="mt-2 list-disc list-inside text-base">
+                            <li>拓展技能边界，学习全链路</li>
+                            <li>参与小型端到端项目</li>
+                        </ul>
+                    </div>
+                    <div class="text-2xl text-slate-500 hidden md:block">→</div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl w-full md:w-1/3">
+                        <h2 class="text-xl text-sky-400">Phase 3: 绽放期 (6-12个月)</h2>
+                        <ul class="mt-2 list-disc list-inside text-base">
+                            <li>独立主导完整项目</li>
+                            <li>直接面对客户交付价值</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 24: Promise -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">你不是一个人在战斗</h1>
+                <p class="mb-12 text-2xl">公司承诺：</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-xl">
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🎓 全面培训资源</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">💰 合理转型过渡期</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🤝 老员工经验传承</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🚀 新项目优先参与</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🏆 成功案例奖励</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Case -->
+        <div class="slide">
+            <div class="slide-content max-w-4xl">
+                <h1 class="mb-12">真实的案例</h1>
+                <div class="bg-slate-800/50 p-12 rounded-xl text-left grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl mb-6">张工程师的故事：</h2>
+                        <p class="text-2xl mb-4"><span class="text-slate-400">曾经：</span>纯粹的后端开发，只负责业务逻辑接口。</p>
+                        <p class="text-2xl"><span class="text-sky-400">现在：</span>独立对接教育客户，<span class="font-bold">3周</span>完成了完整的在线考试系统，全程主导。</p>
+                        <p class="mt-8 text-2xl text-center italic text-green-300">"原来我能做的远比我想象的多。"</p>
+                    </div>
+                    <div class="h-80 w-full bg-cover bg-center rounded-xl" style="background-image: url('https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop')">
+                        <!-- [一位充满自信的工程师的图片] -->
+                    </div>
+                </div>
+                <p class="mt-8 text-2xl">这样的故事，会发生在每个人身上。</p>
+            </div>
+        </div>
+        
+        <!-- Slide 26: Weapon -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">我们最强大的武器</h1>
+                <p class="text-4xl leading-relaxed bg-sky-900/50 p-12 rounded-xl border border-sky-500">
+                    让<span class="highlight">最厉害的AI工程师</span><br>直接服务客户
+                </p>
+                 <p class="mt-12 text-3xl">你，就是那个最厉害的工程师。</p>
+            </div>
+        </div>
+
+        <!-- Slide 27: Mission -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">教育行业的特殊使命</h1>
+                <div class="h-56 w-full max-w-5xl mx-auto bg-cover bg-center rounded-xl shadow-lg mb-10" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop')">
+                    <!-- [学生们在现代化教室里学习的图片] -->
+                </div>
+                <p class="mb-12 text-2xl text-slate-400">我们服务教育行业，这意味着：</p>
+                <div class="grid md:grid-cols-3 gap-8 text-xl">
+                    <p>👨‍🎓 我们的客户是培养<span class="highlight">未来的人</span></p>
+                    <p>🌱 我们的产品影响<span class="highlight">下一代的成长</span></p>
+                    <p>💡 我们的创新能改变<span class="highlight">学习的方式</span></p>
+                </div>
+                <p class="mt-12 text-3xl font-bold">所以我们更要率先进化，用最先进的技术，创造最有价值的教育产品。</p>
+            </div>
+        </div>
+
+        <!-- Slide 28: Opportunity -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">给自己一个机会</h1>
+                <div class="grid md:grid-cols-2 gap-8 text-3xl">
+                    <p class="text-slate-400">不要问：我能不能适应？</p>
+                    <p class="text-sky-300">要问：我想成为怎样的人？</p>
+                </div>
+                <div class="mt-12 space-y-8 text-4xl">
+                    <p>想继续当<span class="line-through text-red-500/70">螺丝钉</span>？还是成为<span class="highlight">创造者</span>？</p>
+                    <p>想<span class="line-through text-red-500/70">被动等待</span>？还是<span class="highlight">主动拥抱</span>？</p>
+                    <p>想<span class="line-through text-red-500/70">保持舒适</span>？还是<span class="highlight">突破边界</span>？</p>
+                </div>
+                <p class="mt-16 text-4xl font-bold">答案在你心里</p>
+            </div>
+        </div>
+        
+        <!-- Slide 29: You in 2026 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">2026年的你</h1>
+                <div class="relative p-12 rounded-xl text-2xl space-y-6 text-left max-w-4xl mx-auto text-white shadow-2xl">
+                    <div class="absolute inset-0 bg-cover bg-center rounded-xl z-0" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop'); filter: brightness(0.5);">
+                         <!-- [人们在会议中庆祝成功的图片] -->
+                    </div>
+                    <div class="relative z-10">
+                        <p>✨ 你独立完成了一个学校的完整信息化项目。</p>
+                        <p>📞 校长亲自打电话表示感谢。</p>
+                        <p>❤️ 学生和老师都说你的产品改变了他们的学习方式。</p>
+                        <p>✉️ 你的名字出现在客户的感谢信里。</p>
+                    </div>
+                </div>
+                <p class="mt-12 text-4xl font-bold">这个"你"，从<span class="highlight">今天</span>开始塑造。</p>
+            </div>
+        </div>
+
+        <!-- Slide 30: Conclusion -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">一起创造历史</h1>
+                <p class="mb-12 text-2xl text-slate-400">我们站在一个历史性的时刻：AI不是终结者，是放大器；改变不是威胁，是礼物。</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-xl">
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🚀 拥抱AI，驾驭AI</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">💪 拓展能力，突破边界</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🌟 创造价值，实现自我</div>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">🤝 服务客户，改变教育</div>
+                </div>
+                <p class="mt-12 text-4xl font-bold text-sky-400">让我们成为AI时代的超级创造者！</p>
+            </div>
+        </div>
+
+        <!-- Final Slide: Action -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1 class="mb-12">行动起来！</h1>
+                <div class="text-left max-w-3xl mx-auto text-2xl space-y-6">
+                    <p><span class="highlight text-3xl">本周开始：</span></p>
+                    <ul class="list-disc list-inside space-y-4">
+                        <li>尝试用AI工具辅助你的日常工作。</li>
+                        <li>思考你想发展的新能力方向。</li>
+                        <li>找一个项目，尝试参与更多环节。</li>
+                    </ul>
+                </div>
+                <p class="mt-16 text-4xl font-bold">每一次尝试，都是向新时代迈进的一步。</p>
+                <h2 class="mt-8 text-5xl text-sky-400">我们一起，创造未来！</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="prev" class="nav-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </div>
+    <div id="next" class="nav-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="page-number" id="pageNumber"></div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        const progressBar = document.getElementById('progressBar');
+        const pageNumber = document.getElementById('pageNumber');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            updateProgress();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function updateProgress() {
+            const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            pageNumber.textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+        
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
+
